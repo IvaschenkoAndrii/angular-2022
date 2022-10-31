@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {UserService} from "../../../user/services";
+import {IPost} from "../../interfaces";
+import {PostService} from "../../services";
 
 @Component({
   selector: 'app-post-detail',
@@ -6,10 +10,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-detail.component.css']
 })
 export class PostDetailComponent implements OnInit {
-
-  constructor() { }
+  post: IPost;
+  constructor(private activatedRoute:ActivatedRoute, private postService:PostService) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(({id})=>{
+      this.postService.getByID(id).subscribe(value => this.post = value);
+    })
   }
 
 }

@@ -15,4 +15,7 @@ export class PostsComponent implements OnInit {
     this.postService.getAll().subscribe(value => this.posts = value);
   }
 
+  details():void {
+
+  }
 }
