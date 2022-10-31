@@ -7,7 +7,6 @@ import {RouterModule, Routes} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { HeaderComponent } from './components/header/header.component';
-import { PostsComponent } from './modules/post/components/posts/posts.component';
 
 
 @NgModule({
