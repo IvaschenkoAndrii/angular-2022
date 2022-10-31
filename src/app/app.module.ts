@@ -13,18 +13,23 @@ import {UserComponent} from './components/user/user.component';
 import {MainLayoutComponent} from './components/layouts/main-layout/main-layout.component';
 import {HeaaderComponent} from './components/header/heaader/heaader.component';
 import * as path from "path";
-import { UserDetailsComponent } from './components/user-details/user-details.component';
+import {UserDetailsComponent} from './components/user-details/user-details.component';
+import {PostDetailedComponent} from './components/post-detailed/post-detailed.component';
 
 let routes: Routes = [
   {
     path: '', component: MainLayoutComponent, children: [
-      {path:'',redirectTo:'users',pathMatch:"full"},
+      {path: '', redirectTo: 'users', pathMatch: "full"},
       {
-        path: 'users', component: UsersComponent,children:[
-          {path:':id',component:UserDetailsComponent}
+        path: 'users', component: UsersComponent, children: [
+          {path: ':id', component: UserDetailsComponent}
         ]
       },
-      {path: 'posts', component: PostsComponent},
+      {
+        path: 'posts', component: PostsComponent, children: [
+          {path: ':id', component: PostDetailedComponent}
+        ]
+      },
       {path: 'comments', component: CommentsComponent}
     ]
   },
@@ -42,7 +47,8 @@ let routes: Routes = [
     CommentComponent,
     MainLayoutComponent,
     HeaaderComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    PostDetailedComponent
   ],
   imports: [
     BrowserModule,
